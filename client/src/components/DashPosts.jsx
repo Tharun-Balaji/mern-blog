@@ -1,4 +1,4 @@
-import { Button, Modal, Table } from "flowbite-react";
+import { Button, Modal, Spinner, Table } from "flowbite-react";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -6,7 +6,8 @@ import { HiOutlineExclamationCircle } from "react-icons/hi";
 
 export default function DashPosts() {
 	const { currentUser } = useSelector((state) => state.user);
-  const [userPosts, setUserPosts] = useState([]);
+	const [userPosts, setUserPosts] = useState([]);
+	const [loading, setLoading] = useState(true);
 	const [showMore, setShowMore] = useState(true);
 	const [showModal, setShowModal] = useState(false);
 	const [postIdToDelete, setPostIdToDelete] = useState("");
@@ -15,6 +16,7 @@ export default function DashPosts() {
 	useEffect(() => {
 		const fetchPosts = async () => {
 			try {
+				setLoading(true);
 				const res = await fetch(
 					`/api/post/getposts?userId=${currentUser._id}`
 				);
@@ -27,6 +29,8 @@ export default function DashPosts() {
 				}
 			} catch (error) {
 				console.log(error.message);
+			}finally {
+				setLoading(false);
 			}
 		};
 
@@ -75,6 +79,14 @@ export default function DashPosts() {
 			console.log(error.message);
 		}
 	};
+
+	if (loading) {
+		return (
+			<div className="flex justify-center items-center min-h-screen">
+				<Spinner size="xl" />
+			</div>
+		);
+	}
 
 
 	return (
@@ -151,7 +163,9 @@ export default function DashPosts() {
 					)}
 				</>
 			) : (
-				<p>You have no posts yet!</p>
+				<p className="text-center text-2xl font-bold text-gray-700 mt-10 mb-5">
+					You have no posts yet!
+				</p>
 			)}
 			<Modal
 				show={showModal}
