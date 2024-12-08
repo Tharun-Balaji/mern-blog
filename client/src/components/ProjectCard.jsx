@@ -1,13 +1,18 @@
 import { LuGithub, LuExternalLink } from "react-icons/lu";
 
-export default function ProjectCard({project}) {
+export default function ProjectCard({ project }) {
+	
+		const getImageUrl = (path) => {
+			return new URL(`/assets/${path}`, import.meta.url).href;
+		};
+
   // console.log(project)
 	return (
 		<div className="max-w-sm rounded-lg overflow-hidden shadow-lg bg-gradient-to-br from-teal-50 to-purple-50 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
 			{/* Project Image Container with overlay on hover */}
 			<div className="relative overflow-hidden group">
 				<img
-					src={project.imageSrc}
+					src={getImageUrl(project.imageSrc)}
 					alt={project.title}
 					className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
 				/>
