@@ -39,6 +39,62 @@ This is a MERN stack blog application that allows users to create accounts, view
    - MongoDB is used as the database, with Mongoose as the ORM.
    - Morgan is used for logging, and bcrypt and JWT are used for authentication and authorization.
 
+
+## 🔗 Live Demo
+
+[MERN BLog App](https://chat-app-xflo.onrender.com/)
+
+
+## 🖼️ Preview
+
+### Home Page
+![Home Page](image.png)
+
+### Recent Posts
+![Recent Posts](image-1.png)
+
+### All Posts
+![All Posts](image-2.png)
+
+### About Page
+![About Page](image-3.png)
+
+### Projects Page
+![Projects Page](image-4.png)
+
+### Sign In Page
+![Sign In Page](image-5.png)
+
+### Sign Up Page
+![Sign Up Page](image-6.png)
+
+### Dashboard
+![Dashboard](image-8.png)
+
+### Dashboard Profile Page
+![Profile Page](image-7.png)
+
+### Dashboard Posts Page
+![Post Page](image-9.png)
+
+### Dashboard Users Page
+![Users Page](image-10.png)
+
+### Dashboard Comments Page
+![Comments Page](image-11.png)
+
+### Update Post Page
+![Update Post](image-12.png)
+
+### Delete Post
+![Delete Post](image-13.png)
+
+### Read Post
+![Read Post](image-14.png)
+
+### Create Post
+![Create Post](image-15.png)
+
 ## Routes
 
 ### Client-side Routes
